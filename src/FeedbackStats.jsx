@@ -1,10 +1,11 @@
 import React from 'react'
-import FeedbackItem from './FeedbackItem';
+
 
 const Feedbackstats = ({Feedback}) => {
 
     let average= Feedback.reduce((acc,cur)=>{
         return acc+cur.rating
+        
 
     },0 ) / Feedback.length //0 for acc initial value
 

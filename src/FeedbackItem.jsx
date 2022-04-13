@@ -9,7 +9,7 @@ const FeedbackItem = ({item,handleDelete}) =>{
         <div className='container'>
             <div className='card' >
                 <div className="num-display"> {item.rating}</div>
-                <button onClick={()=> {handleDelete(item.id)}} className='close'> 
+                <button onClick={ ()=> {handleDelete(item.id)}} className='close'> 
                     <FaTimes color='purple'/>
                 </button>
                 <div className="text-display" > {item.text}</div>

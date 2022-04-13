@@ -1,4 +1,5 @@
 
+import {v4 as uuidv4} from 'uuid'
 import FeedbackData from './data/data';
 import './App.css';
 import Component from './component'
@@ -8,6 +9,7 @@ import Header from './header';
 import { useState } from 'react';
 import Feedbacklist from './Feedbacklist';
 import Feedbackstats from './FeedbackStats';
+import FeedbackForm from './FeedbackForm'
 
 function App() {
 
@@ -21,12 +23,20 @@ function App() {
     
 
   }
+
+
+  const addFeedBack=(newFeedback)=>{
+    console.log(newFeedback)
+    newFeedback.id=uuidv4()
+    setFeedback([newFeedback,...Feedback])
+  }
   
   return (
     <div className="App">
 
     
     <Header/>
+    <FeedbackForm handleAdd={addFeedBack}/>
     <Feedbackstats Feedback={Feedback}/>
     <Feedbacklist Feedback={Feedback} handleDelete={deleteFeedback}/>
     <Component text="this is wriiten in app.js passed to Component 1"></Component>
