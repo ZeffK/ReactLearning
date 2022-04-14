@@ -1,5 +1,7 @@
 
 import {v4 as uuidv4} from 'uuid'
+import{BrowserRouter as Router , Route,Routes} from 'react-router-dom'
+import AboutIconLink from './AboutIconLink'
 import FeedbackData from './data/data';
 import './App.css';
 import Component from './component'
@@ -10,6 +12,7 @@ import { useState } from 'react';
 import Feedbacklist from './Feedbacklist';
 import Feedbackstats from './FeedbackStats';
 import FeedbackForm from './FeedbackForm'
+import About from './pages/About';
 
 function App() {
 
@@ -32,18 +35,43 @@ function App() {
   }
   
   return (
-    <div className="App">
 
-    
-    <Header/>
-    <FeedbackForm handleAdd={addFeedBack}/>
-    <Feedbackstats Feedback={Feedback}/>
-    <Feedbacklist Feedback={Feedback} handleDelete={deleteFeedback}/>
-    <Component text="this is wriiten in app.js passed to Component 1"></Component>
-    <Component2/>
+    <Router>
+        
+        <div className="App">
+          
+        <Routes> 
 
-   
-    </div>
+        
+              
+              <Route path='/' element={
+                <>
+                  
+                  <FeedbackForm handleAdd={addFeedBack}/>
+                  <Feedbackstats Feedback={Feedback}/>
+                  <Feedbacklist Feedback={Feedback} handleDelete={deleteFeedback}/>
+                </>
+              }>
+
+
+              </Route>
+              
+              
+
+              <Route path='/about' element={<About/>} />
+              
+        </Routes>
+
+        
+        <Component text="this is wriiten in app.js passed to Component 1"></Component>
+        <Component2/>
+        <AboutIconLink />
+        
+       
+      
+        </div>
+
+    </Router>
   );
 }
 
