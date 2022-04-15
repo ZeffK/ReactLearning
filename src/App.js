@@ -13,6 +13,7 @@ import Feedbacklist from './Feedbacklist';
 import Feedbackstats from './FeedbackStats';
 import FeedbackForm from './FeedbackForm'
 import About from './pages/About';
+import {Feedbackprovider} from './context/FeedbackContext'
 
 function App() {
 
@@ -35,6 +36,8 @@ function App() {
   }
   
   return (
+
+    <Feedbackprovider>
 
     <Router>
         
@@ -72,6 +75,8 @@ function App() {
         </div>
 
     </Router>
+
+    </Feedbackprovider>
   );
 }
 
