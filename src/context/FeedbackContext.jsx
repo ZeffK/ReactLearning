@@ -4,7 +4,7 @@ const FeedbackContext=createContext()
 
 export const Feedbackprovider=({children})=>{
 
-    const [feedback,setFeedback]=useState([
+    const [Feedback,setFeedback]=useState([
         {
             id:1,
             text:'THis is from context',
@@ -14,7 +14,7 @@ export const Feedbackprovider=({children})=>{
 
     return <FeedbackContext.Provider value={{
 
-        feedback:feedback,
+        Feedback:Feedback,
 
     }}>
         {children}
