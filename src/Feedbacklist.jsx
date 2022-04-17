@@ -3,7 +3,7 @@ import FeedbackItem from './FeedbackItem';
 import { useContext } from 'react';
 import FeedbackContext from './context/FeedbackContext';
 
-const Feedbacklist = ({handleDelete}) => {
+const Feedbacklist = () => {
 
     const {Feedback}=useContext(FeedbackContext)
 
@@ -17,7 +17,7 @@ const Feedbacklist = ({handleDelete}) => {
                 <FeedbackItem 
                 key={item.id}
                 item={item}
-                handleDelete={handleDelete}
+                
                 />
             ))}
 

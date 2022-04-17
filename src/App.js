@@ -17,24 +17,7 @@ import {Feedbackprovider} from './context/FeedbackContext'
 
 function App() {
 
-  const [Feedback,setFeedback]=useState(FeedbackData)
-
-  const deleteFeedback =(id) =>{
-    if(window.confirm('are you sure'))
-    {
-      setFeedback(Feedback.filter((item) => item.id !== id) )
-    }
-    
-
-  }
-
-
-  const addFeedBack=(newFeedback)=>{
-    console.log(newFeedback)
-    newFeedback.id=uuidv4()
-    setFeedback([newFeedback,...Feedback])
-  }
-  
+   
   return (
 
     <Feedbackprovider>
@@ -50,9 +33,9 @@ function App() {
               <Route path='/' element={
                 <>
                   
-                  <FeedbackForm handleAdd={addFeedBack}/>
+                  <FeedbackForm/>
                   <Feedbackstats />
-                  <Feedbacklist handleDelete={deleteFeedback}/>
+                  <Feedbacklist/>
                 </>
               }>
 
