@@ -65,7 +65,11 @@ export const Feedbackprovider=({children})=>{
                 (item.id===id ?  {...item,...updItem} : item) //iterating and comaring the existing value with seleted item
             ) )
         )
-      
+                
+        SetFeedbackEdit({               ///for adding next item as new item
+            edit:false
+        })
+
         
 
     }

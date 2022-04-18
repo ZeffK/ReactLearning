@@ -27,9 +27,6 @@ function App() {
         <div className="App">
           
         <Routes> 
-
-        
-              
               <Route path='/' element={
                 <>
                   
@@ -38,14 +35,9 @@ function App() {
                   <Feedbacklist/>
                 </>
               }>
-
-
               </Route>
-              
-              
 
               <Route path='/about' element={<About/>} />
-              
         </Routes>
 
         

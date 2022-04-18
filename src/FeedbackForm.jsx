@@ -59,6 +59,7 @@ const FeedbackForm = () => {
 
           if (FeedbackEdit.edit===true){
               updateFeedback(FeedbackEdit.item.id,newFeedback)
+              setText('')
           }
           else{
             addFeedBack(newFeedback)
