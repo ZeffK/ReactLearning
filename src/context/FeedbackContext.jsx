@@ -42,9 +42,9 @@ export const Feedbackprovider=({children})=>{
                 method:'DELETE'
             })
 
-            {
+            
               setFeedback(Feedback.filter((item) => item.id !== id) )
-            }
+            
         }
 
       }
@@ -64,12 +64,22 @@ export const Feedbackprovider=({children})=>{
         setFeedback([data,...Feedback])
       }
 
-    const updateFeedback=(id,updItem)=>{
+    const updateFeedback= async (id,updItem)=>{
+
+        const response=await fetch(`http://localhost:5000/Feedback/${id}`,{
+            method:'PUT',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify(updItem)
+        })
+
+        const data=await response.json()
 
 
         setFeedback(
             Feedback.map( (item) => (
-                (item.id===id ?  {...item,...updItem} : item) //iterating and comaring the existing value with seleted item
+                (item.id===id ?  {...item,...data} : item) //iterating and comaring the existing value with seleted item
             ) )
         )
                 
