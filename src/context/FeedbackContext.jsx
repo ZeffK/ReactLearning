@@ -35,19 +35,33 @@ export const Feedbackprovider=({children})=>{
     }
 
 
-    const deleteFeedback =(id) =>{
+    const deleteFeedback = async (id) =>{
         if(window.confirm('are you sure'))
         {
-          setFeedback(Feedback.filter((item) => item.id !== id) )
+            await fetch(`http://localhost:5000/Feedback/${id}`,{
+                method:'DELETE'
+            })
+
+            {
+              setFeedback(Feedback.filter((item) => item.id !== id) )
+            }
         }
-        
-    
+
       }
 
-    const addFeedBack=(newFeedback)=>{
+    const addFeedBack=async (newFeedback)=>{
+        const response=await fetch(`http://localhost:5000/Feedback`, {
+            method:'POST',
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            body:JSON.stringify(newFeedback)
+        })
        // console.log(newFeedback)
+        const data=await response.json()
+        //console.log(data)
         newFeedback.id=uuidv4()
-        setFeedback([newFeedback,...Feedback])
+        setFeedback([data,...Feedback])
       }
 
     const updateFeedback=(id,updItem)=>{
