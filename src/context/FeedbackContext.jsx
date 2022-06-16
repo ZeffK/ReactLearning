@@ -13,7 +13,7 @@ export const Feedbackprovider=({children})=>{
     },[])
 
     const FetchFeedback=async()=>{
-        const response=await fetch(`http://localhost:5000/Feedback?_sort=id&_order=desc`)
+        const response=await fetch(`https://fake-server-apppp.herokuapp.com/feedback?_sort=id&_order=desc`)
         const data=await response.json()
         setFeedback(data)
         console.log(data)
@@ -38,7 +38,7 @@ export const Feedbackprovider=({children})=>{
     const deleteFeedback = async (id) =>{
         if(window.confirm('are you sure'))
         {
-            await fetch(`http://localhost:5000/Feedback/${id}`,{
+            await fetch(`https://fake-server-apppp.herokuapp.com/feedback/${id}`,{
                 method:'DELETE'
             })
 
@@ -50,7 +50,7 @@ export const Feedbackprovider=({children})=>{
       }
 
     const addFeedBack=async (newFeedback)=>{
-        const response=await fetch(`http://localhost:5000/Feedback`, {
+        const response=await fetch(`https://fake-server-apppp.herokuapp.com/feedback`, {
             method:'POST',
             headers:{
                 'Content-Type': 'application/json'
@@ -66,7 +66,7 @@ export const Feedbackprovider=({children})=>{
 
     const updateFeedback= async (id,updItem)=>{
 
-        const response=await fetch(`http://localhost:5000/Feedback/${id}`,{
+        const response=await fetch(`https://fake-server-apppp.herokuapp.com/feedback/${id}`,{
             method:'PUT',
             headers:{
                 'Content-Type':'application/json'
