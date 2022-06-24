@@ -76,3 +76,4 @@ now with PR
 
 
 writing this from local without taking pull 
+Writing this without PR and will commit from local to main 
